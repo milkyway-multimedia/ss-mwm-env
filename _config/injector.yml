@@ -1,0 +1,6 @@
+---
+Name: mwm--injector
+---
+Injector:
+  env:
+    class: 'Milkyway\SS\Env\Env'

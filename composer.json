@@ -1,0 +1,29 @@
+{
+  "name"       : "milkyway-multimedia/ss-mwm-env",
+  "description": "Dot notation access of configuration, as well as overrides via $_ENV",
+  "type"       : "silverstripe-module",
+  "keywords"   : [
+    "silverstripe",
+    "utilities",
+    "mwm"
+  ],
+  "license"    : "MIT",
+  "authors"    : [
+    {
+      "name" : "Mellisa Hankins",
+      "email": "mellisa.hankins@me.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/PHPUnit": "~3.7"
+  },
+  "suggest"    : {
+    "vlucas/phpdotenv": "Load in environment variables from a file (handy for development). Must be implemented yourself in _ss_environment.php (check README)"
+  },
+  "extra"      : {
+    "installer-name": "mwm-env",
+    "branch-alias"  : {
+      "dev-master": "0.3.x-dev"
+    }
+  }
+}

@@ -9,9 +9,7 @@
  */
 
 if (file_exists(BASE_PATH . '/vendor/vlucas/phpdotenv/src/Dotenv.php')) {
-    require_once(BASE_PATH . '/vendor/vlucas/phpdotenv/src/Dotenv.php');
-    require_once(BASE_PATH . '/vendor/vlucas/phpdotenv/src/Loader.php');
-    require_once(BASE_PATH . '/vendor/vlucas/phpdotenv/src/Validator.php');
+    require_once BASE_PATH . '/vendor/autoload.php';
 
     $dirsToCheck = [
         realpath('.'),
@@ -27,8 +25,13 @@ if (file_exists(BASE_PATH . '/vendor/vlucas/phpdotenv/src/Dotenv.php')) {
     foreach ($dirsToCheck as $dir) {
         do {
             $dir .= DIRECTORY_SEPARATOR;
+
             if (@is_readable($dir) && file_exists($dir . '.env.php')) {
-                (new \Dotenv\Dotenv(BASE_PATH, '.env.php'))->overload();
+                (new \Dotenv\Dotenv($dir, '.env.php'))->overload();
+                break(2);
+            }
+            else if (@is_readable($dir) && file_exists($dir . '.env')) {
+                (new \Dotenv\Dotenv($dir, '.env'))->overload();
                 break(2);
             }
             else {
